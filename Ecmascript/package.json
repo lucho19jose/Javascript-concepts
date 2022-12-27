@@ -15,5 +15,8 @@
     "ecmascript"
   ],
   "author": "jose luis barboza gonzales",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  }
 }
