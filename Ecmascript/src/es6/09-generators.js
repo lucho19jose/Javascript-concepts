@@ -10,4 +10,4 @@ console.log(it.next().value);// Oscar
 console.log(it.next().value);// Jose
 console.log(it.next().value);// Brayan
 console.log(it.next().value);// Mari
-console.log(it.next().value);// Undefined
+console.log(it.next().value);// undefined
