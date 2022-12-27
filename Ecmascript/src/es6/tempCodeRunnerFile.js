@@ -1,13 +1,14 @@
-
-function* iterate(array) {
-  for(let value of array){
-    yield value;
+function* getId() {
+  let id = 0;
+  while(true){
+    id++;
+    yield id;
   }
 }
 
-const it = iterate(['Oscar', 'Jose', 'Brayan', 'Mari'])
-console.log(it.next().value);// Oscar
-console.log(it.next().value);// Jose
-console.log(it.next().value);// Brayan
-console.log(it.next().value);// Mari
-console.log(it.next().value);// Undefined
+michi = getId();
+console.log(michi.next());
+console.log(michi.next());
+console.log(michi.next());
+console.log(michi.next());
+console.log(michi.next());
