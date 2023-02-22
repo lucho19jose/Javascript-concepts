@@ -1,8 +1,26 @@
-class Classe {
-  constructor({ name, duration=0, comments=[]}) {
+function videoPlay(id) {
+  const urlSecreta = "video.joseluisb.cloud/" + id;
+  console.log("Estamos reproduciendo desde la url" + urlSecreta);
+}
+
+function videoStop(id) {
+  const urlSecreta = "video.joseluisb.cloud/" + id;
+  console.log("Estamos pausando la url" + urlSecreta);
+}
+
+export class Classe {
+  constructor({ name, videoId=0, comments=[]}) {
     this.name = name;
-    this.duration = duration;
+    this.videoId = videoId;
     this.comments = comments;
+  }
+
+  reproducir() {
+    videoPlay(this.videoId);
+  }
+
+  pausar() {
+    videoStop(this.videoId)
   }
 }
 
