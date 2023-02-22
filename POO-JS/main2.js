@@ -1,3 +1,48 @@
+class Classe {
+  constructor({ name, duration=0, comments=[]}) {
+    this.name = name;
+    this.duration = duration;
+    this.comments = comments;
+  }
+}
+
+class Course {
+  constructor({name, classes = []}) {
+    this.name = name;
+    this.classes = classes;
+  }
+}
+
+const cursoProgramacionBasica = new Course({
+  name: 'Curso de programación',
+  classes: []
+});
+
+const cursodeDeepLearning = new Course({
+  name: 'Curso de Deep learning',
+  classes: []
+});
+
+const cursoAlgorithms = new Course({
+  name: 'Curso de algoritmos',
+  classes: []
+});
+
+const cursoDecalculus = new Course({
+  name: 'Curso de Calculo',
+  classes: []
+});
+
+const cursoDeBI = new Course({
+  name: 'curso De BI',
+  classes: []
+});
+
+const cursoDewebDevelopment = new Course({
+  name: 'curso De HTML, CSS, JS, Vue',
+  classes: []
+});
+
 class LearningPath {
   constructor({ name, courses=[] }){
     this.name = name;
@@ -7,15 +52,29 @@ class LearningPath {
 
 const webdevelopmentPath = new LearningPath({
   name: 'web development',
-  courses: ['introduction to software engineering', 'algoriths', 'data Structures', 'poo', 'Js']
+  courses: [
+    cursoProgramacionBasica,
+    cursoAlgorithms, 
+    cursoDewebDevelopment
+    ]
 });
 const datasciencePath = new LearningPath({
   name: 'Data Science',
-  courses: ['Introduction to Maths', 'Calculus', 'Introduction to Artificial Intelligence', 'BI', 'Hadoop']
+  courses: [
+    cursoProgramacionBasica,
+    cursoAlgorithms,
+    cursoDecalculus,
+    cursoDeBI
+  ]
 });
 const DeepLearningPath = new LearningPath({
   name: 'Deep Learning',
-  courses: ['Introduction to Maths', 'Calculus', 'Introduction to Artificial Intelligence', 'Deep learning', 'Pythorch']
+  courses: [
+    cursoProgramacionBasica,
+    cursoAlgorithms,
+    cursoDecalculus,
+    cursodeDeepLearning
+  ]
 });
 
 
