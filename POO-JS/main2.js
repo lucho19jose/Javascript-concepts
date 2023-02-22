@@ -8,8 +8,20 @@ class Classe {
 
 class Course {
   constructor({name, classes = []}) {
-    this.name = name;
+    this._name = name;
     this.classes = classes;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(nuevoNombre) {
+    if (nuevoNombre === 'Curso Malito de Programación'){
+      console.error("papu...nooo")
+    }else {
+      this._name = nuevoNombre;
+    }
   }
 }
 
