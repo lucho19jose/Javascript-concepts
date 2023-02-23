@@ -1,3 +1,23 @@
+class Comment {
+  constructor({
+    content,
+    studentName,
+    studentRole = "estudiante",
+  }){
+    this.content = content;
+    this.studentName = studentName;
+    this.studentRole = studentRole;
+    this.likes = 0;
+  }
+
+  publicar() {
+    console.log(this.studentName + "(" + this.studentRole + ")");
+    console.log(this.likes + " likes");
+    console.log(this.content);
+  }
+}
+
+
 function videoPlay(id) {
   const urlSecreta = "video.joseluisb.cloud/" + id;
   console.log("Estamos reproduciendo desde la url" + urlSecreta);
@@ -135,9 +155,17 @@ class Student {
     this.approvedCourses = approvedCourses;
     this.learningPaths = learningPaths;
   }
+
+  publicarComentario(commentContent) {
+    const comment = new Comment({
+      content: commentContentm,
+      studentName: this.name,
+    });
+    comment.publicar();
+  }
 }
 
-class FreeStudent  extends Student{
+class FreeStudent extends Student{
   constructor(props){
     super(props);
   }
@@ -175,6 +203,25 @@ class ExpertStudent extends Student{
   }
 }
 
+class TeacherStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+  
+  approveCourse(newCourse) {
+      this.approvedCourses.push(newCourse);
+  }
+
+  publicarComentario(commentContent) {
+    const comment = new Comment({
+      content: commentContent,
+      studentName: this.name,
+      studentRole: "profesor"
+    })
+  }
+
+}
+
 const jose = new FreeStudent({
   name:'JoseLuisB',
   username: 'joseluisb',
@@ -189,5 +236,13 @@ const miguelito = new BasicStudent({
   username: 'miguelitodc',
   email: 'miguelitodc@gmail.com',
   twitter: 'miguelitodc',
+  learningPaths: [webdevelopmentPath, datasciencePath]
+});
+
+const fredda = new TeacherStudent({
+  name:'fredadc',
+  username: 'cvanderfreda',
+  email: 'freddaier@gmail.com',
+  twitter: 'freddaier',
   learningPaths: [webdevelopmentPath, datasciencePath]
 });

@@ -60,3 +60,12 @@ Módulo de ES6 🤝
 La herencia nos permite crear “clases madre”, la cual servirá de molde para clases hijas, que compartirán sus métodos y atributos.
 Usamos la palabra reservada extends.
 
+## Polimorfismo
+
+El polimorfismo en JavaScript les permite a nuestras subclases cambiar o anular el comportamiento de los métodos o atributos que anidaron de una super clase.
+
+Existen estos tipos de polimorfismo según sea el lenguaje de programación: sobrecarga paramétrico e inclusión.
+
+En JavaScript solo podemos utilizar el polimorfismo de inclusión, nos va a permitir sobrescribir que método o atributo heredado vamos a cambiar de la superclase.
+
+
