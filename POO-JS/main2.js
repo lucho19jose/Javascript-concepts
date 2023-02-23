@@ -8,7 +8,7 @@ function videoStop(id) {
   console.log("Estamos pausando la url" + urlSecreta);
 }
 
-export class Classe {
+class Classe {
   constructor({ name, videoId=0, comments=[]}) {
     this.name = name;
     this.videoId = videoId;
@@ -25,9 +25,11 @@ export class Classe {
 }
 
 class Course {
-  constructor({name, classes = []}) {
+  constructor({name, classes = [], isFree=false, lang="spanish"}) {
     this._name = name;
     this.classes = classes;
+    this.isFree = isFree;
+    this.lang = lang
   }
 
   get name() {
@@ -45,12 +47,15 @@ class Course {
 
 const cursoProgramacionBasica = new Course({
   name: 'Curso de programación',
-  classes: []
+  classes: [],
+  isFree: true,
+  lang: 'spanish'
 });
 
 const cursodeDeepLearning = new Course({
   name: 'Curso de Deep learning',
-  classes: []
+  classes: [],
+  lang: 'english',
 });
 
 const cursoAlgorithms = new Course({
@@ -132,7 +137,45 @@ class Student {
   }
 }
 
-const jose = new Student({
+class FreeStudent  extends Student{
+  constructor(props){
+    super(props);
+  }
+
+  approveCourse(newCourse) {
+    if(newCourse.isFree) {
+      this.approvedCourses.push(newCourse);
+    } else {
+      console.warn("Lo sentimos, "+ this.name + ", solo puedes tomar cursos abiertos");
+    }
+  }
+}
+
+class BasicStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+
+  approveCourse(newCourse) {
+    if(newCourse.lang !== "english") {
+      this.approvedCourses.push(newCourse);
+    } else {
+      console.warn("Lo sentimos, "+ this.name + ", no puedes tomar cursos en ingles");
+    }
+  }
+}
+
+class ExpertStudent extends Student{
+  constructor(props){
+    super(props);
+  }
+  
+  approveCourse(newCourse) {
+      this.approvedCourses.push(newCourse);
+  }
+}
+
+const jose = new FreeStudent({
   name:'JoseLuisB',
   username: 'joseluisb',
   email: 'joseluisb@gmail.com',
@@ -141,7 +184,7 @@ const jose = new Student({
 });
 
 
-const miguelito = new Student({
+const miguelito = new BasicStudent({
   name:'miguelitodc',
   username: 'miguelitodc',
   email: 'miguelitodc@gmail.com',
